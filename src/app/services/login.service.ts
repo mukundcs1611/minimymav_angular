@@ -19,7 +19,7 @@ export class LoginService {
                                   });
             
     }
-
+    
     logout() {
         var headers = new Headers();
         headers.append('Content-Type','application/json');

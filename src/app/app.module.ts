@@ -9,6 +9,7 @@ import { LoginComponent } from './login/login.component';
 import { RegisterComponent } from './register/register.component';
 
 import {LoginService} from './services/login.service';
+import {UserService} from './services/user.service';
 import {AlertService} from './services/alert.service';
 import {AuthGuard} from './_guards/auth.guard';
 import { AlertComponent } from './alert/alert.component';
@@ -41,7 +42,7 @@ import {NavigateComponent} from './postlogin/navigate/navigate.component';
   ],
   
   providers: [AlertService,
-        LoginService,AuthGuard],
+        LoginService,AuthGuard,UserService],
   
   bootstrap: [AppComponent]
 })

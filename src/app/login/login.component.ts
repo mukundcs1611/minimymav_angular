@@ -3,7 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 
 import {LoginService} from '../services/login.service';
 import {AlertService} from '../services/alert.service';
-
+//Credits "http://jasonwatmore.com/post/2016/09/29/angular-2-user-registration-and-login-example-tutorial"
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
@@ -30,7 +30,7 @@ export class LoginComponent implements OnInit {
     this.loginService.login(this.model.username, this.model.password)
       .subscribe(
       data => {
-        console.log("Njhbjdsbvjkds");
+        
         this.router.navigate(['/postlogin']);
       },
       error => {
