@@ -15,6 +15,7 @@ export class User {
 @Injectable()
 export class UserService {
     constructor(private http: Http) { }
+    //private _baseUrl="http://localhost:5000";
     private _baseUrl="http://ec2-54-237-240-236.compute-1.amazonaws.com"
     getAll() {
         //return this.http.get('/api/users', this.jwt()).map((response: Response) => response.json());

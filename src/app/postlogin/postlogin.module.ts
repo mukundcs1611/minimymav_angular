@@ -10,6 +10,7 @@ import {PostloginComponent} from './postlogin.component';
 import { ViewcoursesComponent } from './viewcourses/viewcourses.component';
 import { EnrollcoursesComponent } from './enrollcourses/enrollcourses.component';
 import { NavigateComponent } from './navigate/navigate.component';
+import { CartComponent } from './cart/cart.component';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { NavigateComponent } from './navigate/navigate.component';
           children:[
             { path: 'viewcourses', component: ViewcoursesComponent },
             { path: 'enroll', component: EnrollcoursesComponent },
+            { path: 'cart', component: CartComponent },
             { path: '**', redirectTo: '' }
           ]}]
         ),
@@ -29,6 +31,6 @@ import { NavigateComponent } from './navigate/navigate.component';
 
   ],
   
-  declarations: [ViewcoursesComponent, EnrollcoursesComponent,PostloginComponent,NavigateComponent]
+  declarations: [ViewcoursesComponent, EnrollcoursesComponent,PostloginComponent,NavigateComponent, CartComponent]
 })
 export class PostloginModule { }

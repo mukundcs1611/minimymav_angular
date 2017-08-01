@@ -12,6 +12,9 @@ import {UserService} from '../services/user.service';
 export class RegisterComponent {
     model: any = {};
     loading = false;
+    str="string";
+    
+    
 
     constructor(
         private router: Router,
@@ -19,6 +22,7 @@ export class RegisterComponent {
         private alertService: AlertService) { }
 
     register() {
+        this.str
         this.loading = true;
         this.userService.create(this.model)
             .subscribe(
