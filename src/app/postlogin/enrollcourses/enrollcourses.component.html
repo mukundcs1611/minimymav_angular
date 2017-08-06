@@ -1,3 +1,88 @@
-<p>
-  enrollcourses works!
-</p>
+<div class="col-md-6 col-md-offset-3">
+    <h3>Filter</h3>
+    <form name="form" (ngSubmit)="f.form.valid && getCourses(false)" #f="ngForm" novalidate>
+        <div class="form-group">
+            <label for="subject">Subject</label>
+            <select name="subject" class="form-control" [(ngModel)]="model.subject" required>
+            
+            <option value="{{subject.id}}" *ngFor="let subject of subjects">
+                {{subject.name}}
+            </option>
+            </select>
+            
+            
+        </div>
+        
+        <div class="form-group">
+        
+        </div>
+        <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !courseNum.valid }">
+            <label for="courseNum">CourseNum</label>    
+            <label for="coption">Is</label>
+            <select name="coption" class="form-control" [(ngModel)]="model.coption" required>
+            <option value="=">Equal to</option>
+            <option value="<=">Less than</option>
+            <option value=">=">Greater than</option>
+            </select>
+            <input type="text" class="form-control" name="courseNum" [(ngModel)]="model.courseNum" #courseNum="ngModel" required />
+            <div *ngIf="f.submitted && !courseNum.valid" class="help-block">This Field is required</div>
+        </div>
+        
+        <div class="form-group">
+            <label for="">Course Level</label>
+            
+            <input type="text" class="form-control" name="courselevel" [(ngModel)]="model.courseLevel" #courseLevel="ngModel" />
+          
+        </div>
+        <div class="form-group">
+            <button [disabled]="isLoading" class="btn btn-primary" >Filter</button> 
+            <img *ngIf="isLoading" src="data:image/gif;base64,R0lGODlhEAAQAPIAAP///wAAAMLCwkJCQgAAAGJiYoKCgpKSkiH/C05FVFNDQVBFMi4wAwEAAAAh/hpDcmVhdGVkIHdpdGggYWpheGxvYWQuaW5mbwAh+QQJCgAAACwAAAAAEAAQAAADMwi63P4wyklrE2MIOggZnAdOmGYJRbExwroUmcG2LmDEwnHQLVsYOd2mBzkYDAdKa+dIAAAh+QQJCgAAACwAAAAAEAAQAAADNAi63P5OjCEgG4QMu7DmikRxQlFUYDEZIGBMRVsaqHwctXXf7WEYB4Ag1xjihkMZsiUkKhIAIfkECQoAAAAsAAAAABAAEAAAAzYIujIjK8pByJDMlFYvBoVjHA70GU7xSUJhmKtwHPAKzLO9HMaoKwJZ7Rf8AYPDDzKpZBqfvwQAIfkECQoAAAAsAAAAABAAEAAAAzMIumIlK8oyhpHsnFZfhYumCYUhDAQxRIdhHBGqRoKw0R8DYlJd8z0fMDgsGo/IpHI5TAAAIfkECQoAAAAsAAAAABAAEAAAAzIIunInK0rnZBTwGPNMgQwmdsNgXGJUlIWEuR5oWUIpz8pAEAMe6TwfwyYsGo/IpFKSAAAh+QQJCgAAACwAAAAAEAAQAAADMwi6IMKQORfjdOe82p4wGccc4CEuQradylesojEMBgsUc2G7sDX3lQGBMLAJibufbSlKAAAh+QQJCgAAACwAAAAAEAAQAAADMgi63P7wCRHZnFVdmgHu2nFwlWCI3WGc3TSWhUFGxTAUkGCbtgENBMJAEJsxgMLWzpEAACH5BAkKAAAALAAAAAAQABAAAAMyCLrc/jDKSatlQtScKdceCAjDII7HcQ4EMTCpyrCuUBjCYRgHVtqlAiB1YhiCnlsRkAAAOwAAAAAAAAAAAA==" />
+            <!--<a [routerLink]="['/login']" class="btn btn-link">Cancel</a>-->
+        </div>
+    </form>
+      <div *ngIf="!isLoading">
+                    <table class="table table-bordered">
+                        
+                            <tr>
+                                <th>Course Number</th>
+                                <th>Course Title</th>
+                                <th>Section</th>
+                                <th>Instructor</th>
+                                <th>Days</th>
+                                <th>Start Time</th>
+                                <th>End Time</th>
+                                <th>Enrolled</th>
+                                <th>Maximum Capacity</th>
+                                <th>Enroll</th>
+                            </tr>
+                         
+                         <tr *ngFor="let course of courses">
+                            <td>{{course.courseNo}}</td>
+                            <td>{{course.course_title}}</td>
+                            <td>{{course.section}}</td>
+                            <td>{{course.instructor}}</td>
+                            <td>{{course.days}}</td>
+                            <td>{{course.start_time}}</td>
+                            <td>{{course.end_time}}</td>
+                            <td>{{course.enrolled}}</td>
+                            <td>{{course.max}}</td>
+                            <td *ngIf="course.max<=course.enrolled">Enroll</td>
+                            
+                         </tr>   
+                     </table>`
+</div>
+
+<!--
+    "id": "f9449c32-020c-456c-be37-71e68ef99395",
+        "subject": null,
+        "semesterId": 0,
+        "courseNo": 1234,
+        "section": 0,
+        "course_title": null,
+        "instructor": null,
+        "days": null,
+        "start_time": null,
+        "end_time": null,
+        "max": 0,
+        "enrolled": 12
+-->

@@ -11,6 +11,7 @@ import { ViewcoursesComponent } from './viewcourses/viewcourses.component';
 import { EnrollcoursesComponent } from './enrollcourses/enrollcourses.component';
 import { NavigateComponent } from './navigate/navigate.component';
 import { CartComponent } from './cart/cart.component';
+import {ViewEnrollCourseService} from './enrollcourses/services/viewenroll.service';
 
 
 @NgModule({
@@ -31,6 +32,7 @@ import { CartComponent } from './cart/cart.component';
 
   ],
   
-  declarations: [ViewcoursesComponent, EnrollcoursesComponent,PostloginComponent,NavigateComponent, CartComponent]
+  declarations: [ViewcoursesComponent, EnrollcoursesComponent,PostloginComponent,NavigateComponent, CartComponent],
+  providers:[ViewCourseService]
 })
 export class PostloginModule { }
