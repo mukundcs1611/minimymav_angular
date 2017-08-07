@@ -3,8 +3,8 @@ import {Router} from '@angular/router';
 import {ViewEnrollCourseService} from './services/viewenroll.service';
 @Component({
   selector: 'app-viewcourses',
-  templateUrl: './viewcourses.component.html',
-  styleUrls: ['./viewcourses.component.css'],
+  templateUrl: './enrollcourses.component.html',
+  styleUrls: ['./enrollcourses.component.css'],
 
 })
 export class EnrollcoursesComponent implements OnInit {

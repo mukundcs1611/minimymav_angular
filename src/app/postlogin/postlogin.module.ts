@@ -33,6 +33,6 @@ import {ViewEnrollCourseService} from './enrollcourses/services/viewenroll.servi
   ],
   
   declarations: [ViewcoursesComponent, EnrollcoursesComponent,PostloginComponent,NavigateComponent, CartComponent],
-  providers:[ViewCourseService]
+  providers:[ViewEnrollCourseService]
 })
 export class PostloginModule { }

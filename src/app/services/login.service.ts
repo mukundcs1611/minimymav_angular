@@ -11,7 +11,7 @@ export class LoginService {
     login(username: string, password: string) {
         var headers = new Headers();
         headers.append('Content-Type','application/json');
-        return this.http.post(this._baseUrl+'/user/authenticate', JSON.stringify({ username: username, password: password }),{headers:headers})
+        return this.http.post(this._baseUrl+'/user/authenticate', JSON.stringify({ param: username, password: password }),{headers:headers})
         .map((response:Response)=>{let r=response.json(); 
                                     console.log(r);
                                     if(r!=null){
