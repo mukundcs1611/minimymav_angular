@@ -13,7 +13,7 @@ export class EnrollcoursesComponent implements OnInit {
   isLoading=true;
   courses=[];
   
-  subjects=[//This has to be retrieved from back end too. Not a priority 
+  subjects=[//TODO: This has to be retrieved from backend too. Not a priority 
     {
     id:"CSE",
     name:"Computer Science"

@@ -6,7 +6,7 @@ import 'rxjs/add/operator/map'
 @Injectable()
 export class LoginService {
     constructor(private http: Http) { }
-    private _baseUrl="http://localhost:8085";
+    private _baseUrl="http://localhost:9999/user-service/";
     //private _baseUrl="http://ec2-54-237-240-236.compute-1.amazonaws.com"
     login(username: string, password: string) {
         var headers = new Headers();
@@ -15,7 +15,7 @@ export class LoginService {
         .map((response:Response)=>{let r=response.json(); 
                                     console.log(r);
                                     if(r!=null){
-                                        localStorage.setItem('currentUser', JSON.stringify(r.uuid));
+                                        localStorage.setItem('currentUser', r.uuid);
                                     }
                                     //return username;
                                   });
