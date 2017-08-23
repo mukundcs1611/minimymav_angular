@@ -66,8 +66,9 @@
                             <td>{{course.end_time}}</td>
                             <td>{{course.enrolled}}</td>
                             <td>{{course.max}}</td>
-                            <td *ngIf="course.max<=course.enrolled">Enroll</td>
-                            
+                            <td *ngIf="course.max>=course.enrolled">
+                                <button [disabled]="isLoading" class="btn btn-primary" (click)="enrollCourse(course)">Enroll</button>
+                            </td>
                          </tr>   
                      </table>`
 </div>

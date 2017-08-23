@@ -7,9 +7,11 @@ import {Course} from '../entities/course';
 export class ViewEnrollCourseService{
 
 private _baseUrl="http://localhost:9999/course-service/course";
+private _cartUrl="http://localhost:9999/cart-service"
 
 
 constructor(private http: Http) { }
+
 findFiltered(model){
     var headers=new Headers();
     //subject:String,courseNum:Number,coption:String,courseLevel:String
@@ -23,7 +25,9 @@ findAll(){
     headers.append('Content-Type','application/json');
     return this.http.get(this._baseUrl+'/donotAccess',{headers:headers}).map((response:Response)=>response.json());
 }
-enroll(uuid:Text){
-    return null;
-}
+enroll(courseId:string){
+    var headers=new Headers();
+    headers.append('Content-Type','application/json');
+    return this.http.post(this._cartUrl+'/addItem',JSON.stringify({userId:localStorage.getItem('currentUser'),courseId:courseId}),{headers:headers})
+    .map((response:Response)=>response.json());}
 }

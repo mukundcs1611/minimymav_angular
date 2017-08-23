@@ -28,7 +28,7 @@ export class LoginService {
         // remove user from local storage to log user out  
         let username=localStorage.getItem('currentUser')
         localStorage.removeItem('currentUser');
-        return this.http.post(this._baseUrl+'/api/logout', JSON.stringify({ username: username}));
+        return this.http.post(this._baseUrl+'/logout', JSON.stringify({ username: username}));
        
         
         

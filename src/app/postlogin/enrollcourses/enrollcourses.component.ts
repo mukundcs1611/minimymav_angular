@@ -27,6 +27,10 @@ export class EnrollcoursesComponent implements OnInit {
   ngOnInit() {
     this.getCourses(true);
   }
+  enrollCourse(course:any){
+      this._service.enroll(course.courseId)
+          .subscribe(()=>{console.log("Course Enrolled Successfully")});
+  }
   getCourses(firstLoad:boolean){
      if(firstLoad){
        
